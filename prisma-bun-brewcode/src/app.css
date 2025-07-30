@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: 'Playfair Display', serif;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .spin-animation {
+        animation: spin 1.5s linear infinite;
+    }
+}
