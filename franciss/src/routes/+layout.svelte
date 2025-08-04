@@ -1,18 +1,11 @@
 <script lang="ts">
-	import { Navbar, BottomArrows, Home, About, Contacts, Portfolio } from '$lib';
+	import { Navbar, BottomArrows } from '$lib';
 	import '../app.css';
 	import { getUserTheme } from '$lib/utils/utils';
-	import { Component } from 'lucide-svelte';
+	import { page } from '$app/state';
 
+	$: slides = page.data.slides;
 	let isDarkMode = $state(getUserTheme());
-
-	// Slide data
-	let slides = $state([
-		{ content: Home, title: 'Home', id: 0 },
-		{ content: About, title: 'About', id: 1 },
-		{ content: Portfolio, title: 'Portfolio', id: 2 },
-		{ content: Contacts, title: 'Contacts', id: 3 }
-	]);
 
 	// State for current slide
 	let currentSlide = $state(0);

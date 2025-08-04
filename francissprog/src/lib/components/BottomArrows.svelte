@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { iconSize } from '$lib/utils/utils';
+	import { iconSize } from '$lib';
+	import { MoveLeft, MoveRight } from 'lucide-svelte';
+
 	export let isDarkMode: boolean; // Explicitly declare props with export
 	const dispatch = createEventDispatcher<{
 		prev: void;

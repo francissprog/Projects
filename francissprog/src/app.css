@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+button {
+	@apply cursor-pointer;
+}
+
+body {
+	font-family: 'Minecraft', sans-serif;
+}
+@theme {
+	--color-light: #eeeff1;
+	--color-subDark: #28282b;
+	--color-dark: #1b1b1d;
+	--color-slate-gray: #646464;
+	--color-subLight: #ffffff;
+}
