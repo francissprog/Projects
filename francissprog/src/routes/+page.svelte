@@ -9,7 +9,6 @@
 
 	// Reactive state for dark mode
 	$: isDarkMode = $darkMode;
-	const greetings = () => {};
 </script>
 
 <section class="{isDarkMode ? 'bg-subDark' : 'bg-subLight'} h-full rounded-3xl p-6 transition-all">
