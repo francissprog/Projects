@@ -37,6 +37,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"lucide-svelte": "^0.534.0"
+		"lucide-svelte": "^0.534.0",
+		"svelte-typewriter": "^3.2.3"
 	}
 }

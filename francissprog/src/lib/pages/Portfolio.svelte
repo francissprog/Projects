@@ -2,6 +2,8 @@
 	import { Folder, FolderOpen } from 'lucide-svelte';
 	import { page } from '$app/state';
 	import { darkMode } from '$lib';
+	import { onMount, onDestroy } from 'svelte';
+	import { loop } from 'svelte-typewriter';
 	let showProject = false;
 
 	interface Project {
@@ -13,8 +15,8 @@
 	}
 	let selectedProject: Project | null = null;
 
-	const openModal = (projects: Project) => {
-		selectedProject = projects;
+	const openModal = (project: Project) => {
+		selectedProject = project;
 		showProject = true;
 	};
 
@@ -22,21 +24,39 @@
 		showProject = false;
 		selectedProject = null;
 	};
+
+	const handleEsc = (e: KeyboardEvent) => {
+		if (e.key === 'Escape' && showProject) {
+			closeModal();
+		}
+	};
+
+	onMount(() => {
+		document.addEventListener('keydown', handleEsc);
+	});
+
+	onDestroy(() => {
+		document.removeEventListener('keydown', handleEsc);
+	});
+
 	$: isDarkMode = $darkMode;
 </script>
 
 <section class="flex h-full flex-col gap-10 text-2xl">
-	<span>[francissprog@portfolio ~]$ ls Projects/</span>
+	<div class="flex items-center gap-2">
+		<span> [francissprog@portfolio ~]$ </span>
+		<span use:loop={{ interval: 130 }}>ls Projects/ </span>
+	</div>
 	<div class="grid grid-cols-3 gap-4">
 		{#each page.data.projects as project (project.name)}
 			<button
 				class="flex w-fit items-center gap-2 hover:text-orange-500"
 				on:click={() => openModal(project)}
 			>
-				{#if showProject && selectedProject === project.name}
-					<FolderOpen />
+				{#if showProject && selectedProject?.name === project.name}
+					<FolderOpen class="h-10 w-10" />
 				{:else}
-					<Folder />
+					<Folder class="h-10 w-10" />
 				{/if}
 
 				{project.name}
@@ -46,14 +66,15 @@
 </section>
 
 {#if showProject && selectedProject}
-	<div
-		class="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-dark/50"
+	<!-- Backdrop -->
+	<button
+		class="bg-opacity-50 fixed inset-0 z-50 flex cursor-default items-center justify-center bg-dark/50"
 		on:click|self={closeModal}
 	>
 		<div
-			class="flex w-full max-w-md flex-col gap-4 rounded p-5 max-md:max-w-[90%] {isDarkMode
+			class="flex w-full max-w-md flex-col items-start gap-4 rounded p-5 max-md:max-w-[90%] {isDarkMode
 				? 'bg-subDark text-light'
-				: 'bg-subLight text-dark'}"
+				: 'bg-subLight text-dark'} text-left"
 		>
 			<img
 				src={selectedProject.image}
@@ -75,5 +96,5 @@
 				{/if}
 			</div>
 		</div>
-	</div>
+	</button>
 {/if}

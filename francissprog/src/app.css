@@ -6,6 +6,9 @@ button {
 	@apply cursor-pointer;
 }
 
+#onlyButton {
+	@apply cursor-default;
+}
 body {
 	font-family: 'Minecraft', sans-serif;
 }

@@ -22,8 +22,7 @@ export const load: PageLoad = () => {
 				name: 'Brewcode',
 				description:
 					'BrewCode is a coffee shop web app that offers various types of coffee. It’s designed to be user-friendly and ensures secure, private orders for a smooth experience.',
-				sourceCode:
-					'https://github.com/Franciss-prog/web-app-projects/tree/main/prisma-bun-brewcode',
+				sourceCode: 'https://github.com/francissprog/dev/tree/main/prisma-bun-brewcode',
 
 				image: 'https://i.pinimg.com/736x/d9/ec/e7/d9ece738e31bf788ae82db250b2316bc.jpg'
 			},
@@ -35,6 +34,40 @@ export const load: PageLoad = () => {
 				livePreview: 'https://franciss-prog.vercel.app/',
 				image:
 					'https://imgs.search.brave.com/XZOHArSHhHMhOKE95mfQ-mBVu0c2BCa9YA9jEvMCV8s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/MDA5ZWM4Y2RhN2Yz/MDU2NDVjOWQ5MWIv/NjAxMDdmMWViNGJh/NDUxODk5ODQzMDQy/XzYwMDIwODZmNzJi/NzI3NjQ1ODAxZTQ2/MV9waG90b2dyYXBo/b3MuanBlZw'
+			}
+		],
+		contacts: [
+			{
+				name: 'Github',
+				link: 'https://github.com/francissprog/francissprog'
+			},
+			{
+				name: 'Instagram',
+				link: 'https://www.instagram.com/francis_prog?igsh=YXlqeHFiYm9kcTF2'
+			},
+			{
+				name: 'Facebook',
+				link: 'https://www.facebook.com/share/1NtnubiGid/'
+			},
+			{
+				name: 'Reddit',
+				link: 'https://reddit.com/user/Franciss-prog'
+			},
+			{
+				name: 'Linkedin',
+				link: 'https://www.linkedin.com/in/francis-gil-abarintos-9b6788315/'
+			},
+			{
+				name: 'Tiktok',
+				link: 'https://www.tiktok.com/@francissprog?_t=ZS-8xbNpsP2tLZ&_r=1'
+			},
+			{
+				name: 'X',
+				link: 'https://x.com/Francisprog?t=0Ie7BdZM0IWt4eiaBs_LAA&s=09'
+			},
+			{
+				name: 'Email',
+				link: 'mailto:francissprog@gmail.com'
 			}
 		]
 	};
